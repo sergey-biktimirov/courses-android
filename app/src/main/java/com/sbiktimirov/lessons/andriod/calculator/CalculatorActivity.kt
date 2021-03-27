@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.sbiktimirov.calculator.engine.Calculation
 import com.sbiktimirov.calculator.engine.CalculatorEngine
 
@@ -13,11 +14,22 @@ private const val TAG = "CalculatorActivity"
  * */
 private const val KEY_CALCULATION_RESULT = "calculation_result"
 
+/** Ключ темы приложения
+ * */
+private const val KEY_APP_THEME = "app_theme"
+
 class CalculatorActivity : AppCompatActivity() {
     private lateinit var calculationResult: TextView
     private lateinit var calculator: CalculatorEngine
+    private lateinit var appThemeSwitcher: SwitchMaterial
+    private var appTheme: Int = R.style.Theme_CalculatorLight
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val _appTheme = savedInstanceState?.getInt(KEY_APP_THEME)
+        if (_appTheme != null) {
+            this.appTheme = _appTheme
+            setTheme(_appTheme)
+        }
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculator)
 
@@ -41,11 +53,27 @@ class CalculatorActivity : AppCompatActivity() {
         findViewById<Button>(R.id.button_multiply).setOnClickListener { multiply() }
         findViewById<Button>(R.id.button_division).setOnClickListener { divide() }
         findViewById<Button>(R.id.button_clear).setOnClickListener { clear() }
+
+        appThemeSwitcher = findViewById(R.id.switch_theme)
+
+        appThemeSwitcher.isChecked = appTheme != R.style.Theme_CalculatorLight
+
+        appThemeSwitcher.setOnClickListener {
+            if ((it as SwitchMaterial).isChecked) {
+                this.appTheme = R.style.Theme_CalculatorDark
+                recreate()
+            } else {
+                this.appTheme = R.style.Theme_CalculatorLight
+                recreate()
+            }
+        }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putSerializable(KEY_CALCULATION_RESULT, calculator.calculation)
+        outState.putInt(KEY_APP_THEME, appTheme)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {

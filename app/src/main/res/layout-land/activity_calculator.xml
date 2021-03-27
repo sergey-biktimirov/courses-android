@@ -8,6 +8,16 @@
     android:orientation="vertical"
     tools:context=".CalculatorActivity">
 
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/switch_theme"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="end"
+        android:text="@string/dark_theme"
+        app:layout_constraintEnd_toEndOf="@+id/calculation_result"
+        app:layout_constraintStart_toStartOf="@+id/calculation_result"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/calculation_result"
         android:layout_width="0dp"
@@ -22,7 +32,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switch_theme"
         tools:layout_conversion_absoluteHeight="256dp"
         tools:layout_conversion_absoluteWidth="403dp"
         tools:text="Simple text" />

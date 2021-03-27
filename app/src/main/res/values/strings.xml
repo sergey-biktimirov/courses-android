@@ -17,4 +17,6 @@
     <string name="calculator_nine">9</string>
     <string name="calculator_eight">8</string>
     <string name="calculator_seven">7</string>
+    <string name="light_theme">light theme</string>
+    <string name="dark_theme">dark theme</string>
 </resources>
