@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Calculator</string>
+    <string name="calculator_multiply">X</string>
+    <string name="calculator_minus">-</string>
+    <string name="calculator_plus">+</string>
+    <string name="calculator_divide">/</string>
+    <string name="calculator_cleare">C</string>
+    <string name="calculator_equals">=</string>
+    <string name="calculator_comma">,</string>
+    <string name="calculator_zero">0</string>
+    <string name="calculator_three">3</string>
+    <string name="calculator_two">2</string>
+    <string name="calculator_one">1</string>
+    <string name="calculator_six">6</string>
+    <string name="calculator_five">5</string>
+    <string name="calculator_four">4</string>
+    <string name="calculator_nine">9</string>
+    <string name="calculator_eight">8</string>
+    <string name="calculator_seven">7</string>
 </resources>
