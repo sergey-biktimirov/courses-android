@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import com.sbiktimirov.calculator.engine.Calculation
-import com.sbiktimirov.calculator.engine.Calculator
 import com.sbiktimirov.calculator.engine.CalculatorEngine
 
 private const val TAG = "CalculatorActivity"
